@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
@@ -15,12 +16,13 @@ class MyAppView extends StatelessWidget {
       title: 'GraceLink',
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          if(state.status == AuthenticationStatus.authenticated){
+          if (state.status == AuthenticationStatus.authenticated) {
             return const HomeScreen();
-          }else {
+          } else {
             return const OnBoardingScreen();
           }
-        },),
+        },
+      ),
     );
   }
 }
