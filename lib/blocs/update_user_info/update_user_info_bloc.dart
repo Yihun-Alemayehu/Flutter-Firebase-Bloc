@@ -15,10 +15,11 @@ class UpdateUserInfoBloc
     on<UploadPicture>((event, emit) async {
       emit(UploadPictureLoading());
       try {
-        String userImage = await _userRepository.UploadPicture(event.file, event.userId);
-        emit(UploadPictureSuccess(userImage)); 
+        String userImage =
+            await _userRepository.uploadPicture(event.file, event.userId);
+        emit(UploadPictureSuccess(userImage));
       } catch (e) {
-        emit(UploadPictureFailure()); 
+        emit(UploadPictureFailure());
       }
     });
   }
