@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_bloc/Screens/authentication/sign_in_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_up/sign_up_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_up/sign_up_state.dart';
 import 'package:flutter_firebase_bloc/components/strings.dart';
@@ -34,15 +35,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return BlocListener<SignUpBloc, SignUpState>(
       listener: (context, state) {
-        if(state is SignUpSuccess) {
+        if (state is SignUpSuccess) {
           setState(() {
             signUpRequired = false;
           });
-        }else if(state is SignUpProcess) {
+        } else if (state is SignUpProcess) {
           setState(() {
             signUpRequired = true;
           });
-        }else {
+        } else {
           setState(() {
             _errorMsg = 'Sign Up failed';
           });
@@ -149,9 +150,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               validator: (val) {
                 if (val!.isEmpty) {
                   return 'Please fill the field';
-                } else if (!emailRexExp.hasMatch(val)) {
-                  return 'Please enter a valid email ';
                 }
+                // else if (!emailRexExp.hasMatch(val)) {
+                //   return 'Please enter a valid email ';
+                // }
                 return null;
               },
             ),
@@ -240,6 +242,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             context.read<SignUpBloc>().add(SignUpRequired(
                                 user: myUser,
                                 password: passwordController.text));
+                            // MaterialPageRoute(
+                            //   builder: (context) => const SignInScreen(),
+                            // );
                           });
                         }
                       },

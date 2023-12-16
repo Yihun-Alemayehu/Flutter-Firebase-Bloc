@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_bloc/Screens/authentication/sign_in_screen.dart';
+import 'package:flutter_firebase_bloc/Screens/authentication/sign_up_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/welcome_screen.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
@@ -18,7 +20,7 @@ class OnBoardingScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const WelcomeScreen(),
+            builder: (context) => const SignUpScreen(),
           ),
         );
       },
@@ -49,7 +51,7 @@ class OnBoardingScreen extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const WelcomeScreen(),
+            builder: (context) => const SignInScreen(),
           ),
         );
       },

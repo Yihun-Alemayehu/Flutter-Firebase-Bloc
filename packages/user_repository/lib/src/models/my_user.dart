@@ -28,7 +28,7 @@ class MyUser extends Equatable {
     String? email,
     String? picture,
   }) {
-    return copyWith(
+    return MyUser(
       id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
@@ -42,7 +42,7 @@ class MyUser extends Equatable {
   //getter to determine whether the currect user is not empty
   bool get isNotEmpty => this != MyUser.empty;
 
-  MyUserEntity toEntity(){
+  MyUserEntity toEntity() {
     return MyUserEntity(
       id: id,
       name: name,
@@ -51,7 +51,7 @@ class MyUser extends Equatable {
     );
   }
 
-  static MyUser fromEntity(MyUserEntity entity){
+  static MyUser fromEntity(MyUserEntity entity) {
     return MyUser(
       id: entity.id,
       name: entity.name,

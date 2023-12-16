@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/components/strings.dart';
 import 'package:flutter_firebase_bloc/components/textfield.dart';
@@ -115,6 +116,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                     password: passwordController.text),
                               );
                         }
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        );
                       },
                       style: TextButton.styleFrom(
                           elevation: 3,
