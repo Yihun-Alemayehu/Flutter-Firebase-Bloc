@@ -1,4 +1,5 @@
 import 'dart:developer' show log;
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -95,6 +96,16 @@ class FirebaseUserRepository implements UserRepository {
     } catch (e) {
       log(e.toString());
       rethrow;
+    }
+  }
+  
+  @override
+  Future<String> uploadPicture(String file, String userId) {
+    try {
+      File imageFile = File(file);
+      Reference firebaseStorageRef = FirebaseStorage.instance.ref().child
+    } catch (e) {
+      print(e); 
     }
   }
 }
