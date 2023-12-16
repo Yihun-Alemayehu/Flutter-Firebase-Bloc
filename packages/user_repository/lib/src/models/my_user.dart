@@ -5,9 +5,9 @@ class MyUser extends Equatable {
   final String id;
   final String name;
   final String email;
-  final String? picture;
+  String? picture;
 
-  const MyUser({
+  MyUser({
     required this.id,
     required this.name,
     required this.email,
@@ -15,7 +15,7 @@ class MyUser extends Equatable {
   });
 
   //Empty user
-  static const empty = MyUser(
+  static final empty = MyUser(
     id: '',
     name: '',
     email: '',
