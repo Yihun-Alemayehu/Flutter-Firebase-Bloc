@@ -32,7 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.blue[50],
+        leading: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Icon(
+            Icons.menu_sharp,
+            color: Colors.black,
+            size: 35,
+          ),
+        ),
         actions: [
           // IconButton(
           //     onPressed: () {
@@ -115,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 );
               } else {
-                return const CircularProgressIndicator();
+                return Container();
               }
             },
           )
@@ -135,9 +143,12 @@ class _HomeScreenState extends State<HomeScreen> {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blue[100],
+                ),
                 width: double.infinity,
-                //height: 400,
-                //color: Colors.blueAccent,
+                height: 350,
                 child: Column(
                   children: [
                     const Row(
@@ -175,12 +186,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      //color: Colors.grey,
-                      child: const Text(
-                        'May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.',
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        //color: Colors.grey,
+                        child: const Text(
+                          'May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.',
+                        ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                              image: AssetImage('assets/post.png')),
+                          borderRadius: BorderRadius.circular(20),
+                          // color: Colors.blue[100],
+                        ),
+                        //child: Image.asset('assets/post.png'),
+                      ),
+                    )
                   ],
                 ),
               ),
