@@ -216,16 +216,29 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const PostScreen(),
-            ),
-          );
+      floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
+        builder: (context, state) {
+          if (state.status == MyUserStatus.success) {
+            return FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PostScreen(
+                      state.user!,
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.add),
+            );
+          } else {
+            return const FloatingActionButton(
+              onPressed: null,
+              child: Icon(Icons.clear),
+            );
+          }
         },
-        child: const Icon(Icons.add),
       ),
     );
   }

@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
+import 'package:post_repository/post_repository.dart';
+import 'package:user_repository/user_repository.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+class PostScreen extends StatefulWidget {
+  final MyUser myUser;
+  const PostScreen(this.myUser, {super.key});
+
+  @override
+  State<PostScreen> createState() => _PostScreenState();
+}
+
+class _PostScreenState extends State<PostScreen> {
+  late Post post;
+
+  @override
+  void initState() {
+    post = Post.empty;
+    post.myUser = widget.myUser;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +60,9 @@ class PostScreen extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            // Post
+          },
           child: const Icon(Icons.add),
         ),
       ),

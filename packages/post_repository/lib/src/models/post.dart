@@ -61,6 +61,15 @@ class Post {
     );
   }
 
+  @override
+  String toString() {
+    return '''Post: {
+      postId: $postId
+      post: $post
+      timeStamp: $timeStamp
+      myUser: $myUser
+      }''';
+  }
   // @override
   // List<Object?> get props => [postId, post, timeStamp, myUser];
 }
