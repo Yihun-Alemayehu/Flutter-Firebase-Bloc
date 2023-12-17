@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //     icon: const Icon(Icons.logout))
           BlocBuilder<MyUserBloc, MyUserState>(
             builder: (context, state) {
-              if (state.user != null) {
+              if (state.status == MyUserStatus.success) {
                 return Row(
                   children: [
                     state.user!.picture == ""
@@ -216,7 +217,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PostScreen(),
+            ),
+          );
+        },
         child: const Icon(Icons.add),
       ),
     );
