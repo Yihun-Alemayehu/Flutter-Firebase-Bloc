@@ -40,11 +40,13 @@ dependencies:
   firebase_auth: ^4.15.3
   user_repository:
     path: packages/user_repository
+  post_repository:
+    path: packages/post_repository
+
   flutter_onboarding_slider: ^1.0.11
   image_picker: ^1.0.5
   image_cropper: ^5.0.1
   firebase_storage: ^11.5.6
-  
 
 dev_dependencies:
   flutter_test:
