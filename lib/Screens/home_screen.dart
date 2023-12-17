@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
+import 'package:flutter_firebase_bloc/blocs/create_post/create_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:post_repository/post_repository.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -224,8 +226,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PostScreen(
-                      state.user!,
+                    builder: (context) => BlocProvider<CreatePostBloc>(
+                      create: (context) => CreatePostBloc(
+                        myPostRepository: FirebasePostRepository(),
+                      ),
+                      child: PostScreen(
+                        state.user!,
+                      ),
                     ),
                   ),
                 );
