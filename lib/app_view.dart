@@ -6,9 +6,11 @@ import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/onboarding_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/welcome_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/authentication/authentication_bloc.dart';
+import 'package:flutter_firebase_bloc/blocs/get_post/get_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
+import 'package:post_repository/post_repository.dart';
 
 class MyAppView extends StatelessWidget {
   const MyAppView({super.key});
@@ -47,10 +49,13 @@ class MyAppView extends StatelessWidget {
                             .user!
                             .uid)),
                 ),
-                // BlocProvider(
-                //     create: (context) =>
-                //         GetPostBloc(postRepository: FirebasePostRepository())
-                //           ..add(GetPosts()))
+                BlocProvider(
+                  create: (context) =>
+                      GetPostBloc(myPostRepository: FirebasePostRepository())
+                        ..add(
+                          GetPost(),
+                        ),
+                ),
               ],
               child: const HomeScreen(),
             );

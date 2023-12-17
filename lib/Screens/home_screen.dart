@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/create_post/create_post_bloc.dart';
+import 'package:flutter_firebase_bloc/blocs/get_post/get_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
@@ -140,81 +141,95 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           }
         },
-        child: ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue[100],
-                ),
-                width: double.infinity,
-                height: 350,
-                child: Column(
-                  children: [
-                    const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: CircleAvatar(
-                            radius: 25,
-                            backgroundImage: AssetImage('assets/dad.jpg'),
+        child: BlocBuilder<GetPostBloc, GetPostState>(
+          builder: (context, state) {
+            if (state is GetPostSuccess) {
+              return ListView.builder(
+                itemCount: state.posts.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blue[100],
+                      ),
+                      width: double.infinity,
+                      height: 350,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(10),
+                                child: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage: AssetImage('assets/dad.jpg'),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    state.posts[index].myUser.name,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text('3 minutes'),
+                                ],
+                              ),
+                              const Expanded(child: SizedBox()),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.more_vert_rounded,
+                                  size: 30,
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'GraceLink',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Container(
+                              //color: Colors.grey,
+                              child: Text(
+                                state.posts[index].post,
                               ),
                             ),
-                            Text('3 minutes'),
-                          ],
-                        ),
-                        Expanded(child: SizedBox()),
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.more_vert_rounded,
-                            size: 30,
                           ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        //color: Colors.grey,
-                        child: const Text(
-                          'May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.',
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                    image: AssetImage('assets/post.png')),
+                                borderRadius: BorderRadius.circular(20),
+                                // color: Colors.blue[100],
+                              ),
+                              //child: Image.asset('assets/post.png'),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              image: AssetImage('assets/post.png')),
-                          borderRadius: BorderRadius.circular(20),
-                          // color: Colors.blue[100],
-                        ),
-                        //child: Image.asset('assets/post.png'),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            );
+                  );
+                },
+              );
+            } else if (state is GetPostLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return const Center(
+                child: Text('An error occurred while loading...'),
+              );
+            }
           },
         ),
       ),

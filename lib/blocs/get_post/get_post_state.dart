@@ -14,7 +14,7 @@ class GetPostFailure extends GetPostState {}
 class GetPostLoading extends GetPostState {}
 
 class GetPostSuccess extends GetPostState {
-  final List<Post> posts;
+  List<Post> posts;
 
-  const GetPostSuccess(this.posts);
+  GetPostSuccess(this.posts);
 }
