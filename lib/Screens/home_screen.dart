@@ -8,6 +8,7 @@ import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:post_repository/post_repository.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -177,7 +178,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  const Text('3 minutes'),
+                                  Text(
+                                    DateFormat('yyyy-MM-dd')
+                                        .format(state.posts[index].timeStamp),
+                                  ),
                                 ],
                               ),
                               const Expanded(child: SizedBox()),
