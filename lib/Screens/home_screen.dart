@@ -1,3 +1,4 @@
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
@@ -6,10 +7,13 @@ import 'package:flutter_firebase_bloc/blocs/get_post/get_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
+import 'package:iconly/iconly.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:post_repository/post_repository.dart';
+
+enum _SelectedTab { home, favorite, add, community, person }
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,9 +23,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var _selectedTab = _SelectedTab.home;
+
+  void _handleIndexChanged(int i) {
+    setState(() {
+      _selectedTab = _SelectedTab.values[i];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.only(top: 10),
@@ -265,6 +278,53 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         },
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 5),
+        child: CrystalNavigationBar(
+          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+          // indicatorColor: Colors.white,
+          unselectedItemColor: Colors.white70,
+          backgroundColor: Colors.black.withOpacity(0.1),
+          // outlineBorderColor: Colors.black.withOpacity(0.1),
+          onTap: _handleIndexChanged,
+
+          items: [
+            /// Home
+            CrystalNavigationBarItem(
+              icon: IconlyBold.home,
+              unselectedIcon: IconlyLight.home,
+              selectedColor: Colors.white,
+            ),
+
+            /// Favourite
+            CrystalNavigationBarItem(
+              icon: IconlyBold.user_2,
+              unselectedIcon: IconlyLight.user_1,
+              selectedColor: Colors.red,
+            ),
+
+            /// Add
+            CrystalNavigationBarItem(
+              icon: IconlyBold.plus,
+              unselectedIcon: IconlyLight.plus,
+              selectedColor: Colors.white,
+            ),
+
+            /// Search
+            CrystalNavigationBarItem(
+                icon: IconlyBold.chat,
+                unselectedIcon: IconlyLight.search,
+                selectedColor: Colors.white),
+
+            /// Profile
+            CrystalNavigationBarItem(
+              icon: IconlyBold.user_2,
+              unselectedIcon: IconlyLight.user,
+              selectedColor: Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }
