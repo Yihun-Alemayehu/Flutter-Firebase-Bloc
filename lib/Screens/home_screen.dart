@@ -1,6 +1,7 @@
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_bloc/Screens/badoScreen.dart';
 import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/create_post/create_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/get_post/get_post_bloc.dart';
@@ -15,6 +16,8 @@ import 'package:post_repository/post_repository.dart';
 
 enum _SelectedTab { home, favorite, add, community, person }
 
+
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,10 +27,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var _selectedTab = _SelectedTab.home;
+  Widget _SelectedWidgetTab = _SelectedWidget.first;
 
   void _handleIndexChanged(int i) {
     setState(() {
-      _selectedTab = _SelectedTab.values[i];
+      //_selectedTab = _SelectedTab.values[i];
+      _SelectedWidgetTab = _SelectedWidget.elementAt(i);
     });
   }
 
