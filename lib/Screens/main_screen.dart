@@ -16,8 +16,8 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedTab = 0;
   List pages = const [
     HomeScreen(),
-    BadoScreen(),
     CommunityScreen(),
+    BadoScreen(),
     ProfileScreen(),
     ProfileScreen(),
   ];

@@ -9,6 +9,18 @@ class CommunityScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Community page'),
       ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.diversity_3_rounded,
+              size: 100,
+            ),
+            Text('Community page'),
+          ],
+        ),
+      ),
     );
   }
 }
