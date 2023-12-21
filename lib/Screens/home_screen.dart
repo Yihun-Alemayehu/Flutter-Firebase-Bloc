@@ -14,10 +14,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:post_repository/post_repository.dart';
 
-enum _SelectedTab { home, favorite, add, community, person }
-
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -26,16 +22,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var _selectedTab = _SelectedTab.home;
-  Widget _SelectedWidgetTab = _SelectedWidget.first;
-
-  void _handleIndexChanged(int i) {
-    setState(() {
-      //_selectedTab = _SelectedTab.values[i];
-      _SelectedWidgetTab = _SelectedWidget.elementAt(i);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blue[50],
+        backgroundColor: Colors.white,
         leading: const Padding(
           padding: EdgeInsets.only(top: 12),
           child: Icon(
-            Icons.menu_sharp,
+            Icons.sort,
             color: Colors.black,
             size: 35,
           ),
@@ -129,8 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: const Padding(
                               padding: EdgeInsets.only(top: 10),
                               child: CircleAvatar(
+                                backgroundColor: Colors.white,
                                 radius: 35,
-                                child: Icon(Icons.person),
+                                child: Icon(
+                                  Icons.person_4_rounded,
+                                  color: Colors.black,
+                                  size: 40,
+                                ),
                               ),
                             ),
                           )
@@ -168,13 +159,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue[100],
-                      ),
-                      width: double.infinity,
-                      height: 350,
+                    child: Card(
+                      color: Colors.grey[200],
+                      shadowColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         children: [
                           Row(
@@ -283,53 +272,6 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         },
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 5),
-        child: CrystalNavigationBar(
-          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-          // indicatorColor: Colors.white,
-          unselectedItemColor: Colors.white70,
-          backgroundColor: Colors.black.withOpacity(0.1),
-          // outlineBorderColor: Colors.black.withOpacity(0.1),
-          onTap: _handleIndexChanged,
-
-          items: [
-            /// Home
-            CrystalNavigationBarItem(
-              icon: IconlyBold.home,
-              unselectedIcon: IconlyLight.home,
-              selectedColor: Colors.white,
-            ),
-
-            /// Favourite
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user_1,
-              selectedColor: Colors.red,
-            ),
-
-            /// Add
-            CrystalNavigationBarItem(
-              icon: IconlyBold.plus,
-              unselectedIcon: IconlyLight.plus,
-              selectedColor: Colors.white,
-            ),
-
-            /// Search
-            CrystalNavigationBarItem(
-                icon: IconlyBold.chat,
-                unselectedIcon: IconlyLight.search,
-                selectedColor: Colors.white),
-
-            /// Profile
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user,
-              selectedColor: Colors.white,
-            ),
-          ],
-        ),
       ),
     );
   }

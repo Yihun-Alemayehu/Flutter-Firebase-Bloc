@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/authentication/sign_in_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
+import 'package:flutter_firebase_bloc/Screens/main_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/onboarding_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/welcome_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/authentication/authentication_bloc.dart';
@@ -57,7 +58,7 @@ class MyAppView extends StatelessWidget {
                         ),
                 ),
               ],
-              child: const HomeScreen(),
+              child: const MainScreen(),
             );
           } else {
             return const WelcomeScreen();

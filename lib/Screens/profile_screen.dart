@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BadoScreen extends StatelessWidget {
-  const BadoScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bado page'),
+        title: const Text('Profile page'),
       ),
     );
   }

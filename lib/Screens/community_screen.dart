@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BadoScreen extends StatelessWidget {
-  const BadoScreen({super.key});
+class CommunityScreen extends StatelessWidget {
+  const CommunityScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bado page'),
+        title: const Text('Community page'),
       ),
     );
   }
