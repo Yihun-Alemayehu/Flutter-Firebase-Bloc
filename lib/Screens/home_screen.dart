@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        centerTitle: true,
+        //centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
         leading: const Padding(
@@ -53,6 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
           //       context.read<SignInBloc>().add(const SignOutRequired());
           //     },
           //     icon: const Icon(Icons.logout))
+          const Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: Icon(
+              Icons.sensors,
+              color: Colors.black,
+              size: 40,
+            ),
+          ),
           BlocBuilder<MyUserBloc, MyUserState>(
             builder: (context, state) {
               if (state.status == MyUserStatus.success) {
@@ -162,6 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
@@ -207,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               //color: Colors.grey,
                               child: Text(
                                 state.posts[index].post,
+                                //textAlign: TextAlign.left,
                               ),
                             ),
                           ),
@@ -241,35 +251,35 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
-        builder: (context, state) {
-          if (state.status == MyUserStatus.success) {
-            return FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlocProvider<CreatePostBloc>(
-                      create: (context) => CreatePostBloc(
-                        myPostRepository: FirebasePostRepository(),
-                      ),
-                      child: PostScreen(
-                        state.user!,
-                      ),
-                    ),
-                  ),
-                );
-              },
-              child: const Icon(Icons.add),
-            );
-          } else {
-            return const FloatingActionButton(
-              onPressed: null,
-              child: Icon(Icons.clear),
-            );
-          }
-        },
-      ),
+      // floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
+      //   builder: (context, state) {
+      //     if (state.status == MyUserStatus.success) {
+      //       return FloatingActionButton(
+      //         onPressed: () {
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (context) => BlocProvider<CreatePostBloc>(
+      //                 create: (context) => CreatePostBloc(
+      //                   myPostRepository: FirebasePostRepository(),
+      //                 ),
+      //                 child: PostScreen(
+      //                   state.user!,
+      //                 ),
+      //               ),
+      //             ),
+      //           );
+      //         },
+      //         child: const Icon(Icons.add),
+      //       );
+      //     } else {
+      //       return const FloatingActionButton(
+      //         onPressed: null,
+      //         child: Icon(Icons.clear),
+      //       );
+      //     }
+      //   },
+      // ),
     );
   }
 }
