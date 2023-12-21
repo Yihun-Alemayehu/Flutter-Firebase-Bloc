@@ -1,14 +1,11 @@
-import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_firebase_bloc/Screens/badoScreen.dart';
 import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/blocs/create_post/create_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/get_post/get_post_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/my_user/my_user_bloc.dart';
-import 'package:flutter_firebase_bloc/blocs/sign_in/sign_in_bloc.dart';
 import 'package:flutter_firebase_bloc/blocs/update_user_info/update_user_info_bloc.dart';
-import 'package:iconly/iconly.dart';
+
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';

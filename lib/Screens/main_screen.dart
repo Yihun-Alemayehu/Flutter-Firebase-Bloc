@@ -1,11 +1,9 @@
-import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_bloc/Screens/badoScreen.dart';
 import 'package:flutter_firebase_bloc/Screens/community_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
-import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/profile_screen.dart';
-import 'package:iconly/iconly.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -34,52 +32,45 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_selectedTab],
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 5),
-        child: CrystalNavigationBar(
-          currentIndex: _selectedTab,
-          // indicatorColor: Colors.white,
-          unselectedItemColor: Colors.white70,
-          backgroundColor: Colors.black.withOpacity(0.1),
-          // outlineBorderColor: Colors.black.withOpacity(0.1),
-          onTap: _handleIndexChanged,
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _selectedTab,
+        onTap: _handleIndexChanged,
+        items: [
+          /// Home
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
+            selectedColor: Colors.purple,
+          ),
 
-          items: [
-            /// Home
-            CrystalNavigationBarItem(
-              icon: IconlyBold.home,
-              unselectedIcon: IconlyLight.home,
-              selectedColor: Colors.white,
-            ),
+          /// Likes
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.diversity_3_rounded),
+            title: const Text("Community"),
+            selectedColor: Colors.pink,
+          ),
 
-            /// Favourite
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user_1,
-              selectedColor: Colors.red,
-            ),
+          // Add post
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.add_circle),
+            title: const Text("Add"),
+            selectedColor: Colors.orange,
+          ),
 
-            /// Add
-            CrystalNavigationBarItem(
-              icon: IconlyBold.plus,
-              unselectedIcon: IconlyLight.plus,
-              selectedColor: Colors.white,
-            ),
+          /// Search
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.chat),
+            title: const Text("chat"),
+            selectedColor: Colors.orange,
+          ),
 
-            /// Search
-            CrystalNavigationBarItem(
-                icon: IconlyBold.chat,
-                unselectedIcon: IconlyLight.search,
-                selectedColor: Colors.white),
-
-            /// Profile
-            CrystalNavigationBarItem(
-              icon: IconlyBold.user_2,
-              unselectedIcon: IconlyLight.user,
-              selectedColor: Colors.white,
-            ),
-          ],
-        ),
+          /// Profile
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.person),
+            title: const Text("Profile"),
+            selectedColor: Colors.teal,
+          ),
+        ],
       ),
     );
   }
