@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_bloc/Screens/badoScreen.dart';
+import 'package:flutter_firebase_bloc/Screens/chat_Screen.dart';
 import 'package:flutter_firebase_bloc/Screens/community_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/profile_screen.dart';
@@ -18,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     CommunityScreen(),
     BadoScreen(),
-    ProfileScreen(),
+    ChatScreen(),
     ProfileScreen(),
   ];
 
