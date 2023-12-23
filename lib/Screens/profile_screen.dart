@@ -140,7 +140,7 @@ class ProfileScreen extends StatelessWidget {
                 //           borderRadius: BorderRadius.circular(10),
                 //         ),
                 //         child: Container(
-                //           height: 200,
+                //           height: 100,
                 //           decoration: const BoxDecoration(
                 //               image: DecorationImage(
                 //                   image: AssetImage('assets/copy.jpg'))),
@@ -149,9 +149,43 @@ class ProfileScreen extends StatelessWidget {
                 //     },
                 //   ),
                 // )
+                // Card(
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(10),
+                //   ),
+                //   child: Container(
+                //     height: 100,
+                //     decoration: const BoxDecoration(
+                //         image: DecorationImage(
+                //             image: AssetImage('assets/copy.jpg'))),
+                //   ),
+                // ),
               ],
             ),
-          )
+          ),
+          // SliverList.builder(
+          //   itemBuilder: (context, index) {
+          //     return Expanded(
+          //       child: ListView.builder(
+          //         scrollDirection: Axis.horizontal,
+          //         itemCount: 5,
+          //         itemBuilder: (context, index) {
+          //           return Card(
+          //             shape: RoundedRectangleBorder(
+          //               borderRadius: BorderRadius.circular(10),
+          //             ),
+          //             child: Container(
+          //               height: 100,
+          //               decoration: const BoxDecoration(
+          //                   image: DecorationImage(
+          //                       image: AssetImage('assets/copy.jpg'))),
+          //             ),
+          //           );
+          //         },
+          //       ),
+          //     );
+          //   },
+          // )
         ],
       ),
     );
