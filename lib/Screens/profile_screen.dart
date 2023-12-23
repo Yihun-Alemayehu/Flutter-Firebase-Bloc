@@ -28,32 +28,55 @@ class ProfileScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('@Yihunalemayehu',
+                const Center(
+                  child: Text(
+                    '@Yihunalemayehu',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
+                const Center(
+                  child: Text(
+                    'Flutter developer| Software Engineer| Full-stack developer ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text('2.3K Followers'),
-                    Text('159 Followings'),
+                    Text(
+                      '2.3K Followers',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      '159 Followings',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                    'Flutter developer| Software Engineer| Full-stack developer '),
-                const SizedBox(
-                  height: 20,
-                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
                       shape: RoundedRectangleBorder(
@@ -96,7 +119,36 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Photos',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                // Expanded(
+                //   child: ListView.builder(
+                //     scrollDirection: Axis.horizontal,
+                //     itemCount: 5,
+                //     itemBuilder: (context, index) {
+                //       return Card(
+                //         shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.circular(10),
+                //         ),
+                //         child: Container(
+                //           height: 200,
+                //           decoration: const BoxDecoration(
+                //               image: DecorationImage(
+                //                   image: AssetImage('assets/copy.jpg'))),
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // )
               ],
             ),
           )
