@@ -7,12 +7,17 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List messageItem = [
       ["assets/dad.jpg", "Aychew Desalegn", "Hi Yihune", "20 minutes"],
-      ["assets/s.jpg", "Zerihun Kassahun", "broooo...", "35 minutes"],
-      ["assets/dad.jpg", "Simon Jonah", "Endet nek ?", "1 hour"],
-      ["assets/dad.jpg", "Kalkidan Egiju", "troubles will pass", "2 hours"],
-      ["assets/dad.jpg", "Dr Robel", "As a Doctor ...", "2  days"],
-      ["assets/dad.jpg", "Mebratu Megeze", "Abiyee", "2  days"],
-      ["assets/dad.jpg", "Abebayehu Lukas", "wannay tayadasa", "2  days"],
+      ["assets/image1.jpg", "Zerihun Kassahun", "broooo...", "35 minutes"],
+      ["assets/simon.jpg", "Simon Jonah", "Endet nek ?", "1 hour"],
+      [
+        "assets/Kalkidan.jpg",
+        "Kalkidan Egiju",
+        "troubles will pass",
+        "2 hours"
+      ],
+      ["assets/roba.jpg", "Dr Robel", "As a Doctor ...", "2  days"],
+      ["assets/mabe.jpg", "Mebratu Megeze", "Abiyee", "2  days"],
+      ["assets/etaba.jpg", "Abebayehu Lukas", "wannay tayadasa", "2  days"],
       ["assets/11.jpg", "Hirut Belachew", "betam ykrta", "3  days"],
     ];
     return Scaffold(
@@ -47,13 +52,13 @@ class ChatScreen extends StatelessWidget {
                 flex: 1,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: 8,
                   itemBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage('assets/dad.jpg'),
+                        backgroundImage: AssetImage(messageItem[index][0]),
                       ),
                     );
                   },
