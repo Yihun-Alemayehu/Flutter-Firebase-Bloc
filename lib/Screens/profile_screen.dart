@@ -59,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      '11.3K Followers',
+                      '2.3K Followers',
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                       ),
