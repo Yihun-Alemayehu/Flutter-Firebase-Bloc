@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_bloc/Screens/authentication/sign_in_screen.dart';
+import 'package:flutter_firebase_bloc/Screens/community_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/main_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/onboarding_screen.dart';
@@ -22,6 +23,9 @@ class MyAppView extends StatelessWidget {
     // final SignInBloc _signInBloc =
     //     SignInBloc(myUserRepository: context.read().add());
     return MaterialApp(
+      routes: {
+        '/community': (context) => const CommunityScreen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'GraceLink',
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(

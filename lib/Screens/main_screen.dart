@@ -3,6 +3,7 @@ import 'package:flutter_firebase_bloc/Screens/badoScreen.dart';
 import 'package:flutter_firebase_bloc/Screens/chat_Screen.dart';
 import 'package:flutter_firebase_bloc/Screens/community_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/home_screen.dart';
+import 'package:flutter_firebase_bloc/Screens/post_screen.dart';
 import 'package:flutter_firebase_bloc/Screens/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
