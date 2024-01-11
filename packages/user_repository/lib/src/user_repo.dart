@@ -9,7 +9,7 @@ abstract class UserRepository {
 
   Future<void> logOut();
 
-  Future<MyUser> signUp(MyUser myUser, String password);
+  Future<MyUser> signUp(MyUser myUser, String password, MyUser copyWith);
 
   Future<void> resetPassword(String email);
 

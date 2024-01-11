@@ -6,12 +6,14 @@ class MyUser extends Equatable {
   final String name;
   final String email;
   String? picture;
+  String role;
 
   MyUser({
     required this.id,
     required this.name,
     required this.email,
     this.picture,
+    required this.role
   });
 
   //Empty user
@@ -20,6 +22,7 @@ class MyUser extends Equatable {
     name: '',
     email: '',
     picture: '',
+    role: '',
   );
 
   MyUser copyWith({
@@ -27,12 +30,14 @@ class MyUser extends Equatable {
     String? name,
     String? email,
     String? picture,
+    String? role
   }) {
     return MyUser(
       id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       picture: picture ?? this.picture,
+      role: role ?? this.role,
     );
   }
 
@@ -48,6 +53,7 @@ class MyUser extends Equatable {
       name: name,
       email: email,
       picture: picture,
+      role: role,
     );
   }
 
@@ -57,9 +63,10 @@ class MyUser extends Equatable {
       name: entity.name,
       email: entity.email,
       picture: entity.picture,
+      role: entity.role,
     );
   }
 
   @override
-  List<Object?> get props => [id, name, email, picture];
+  List<Object?> get props => [id, name, email, picture, role];
 }

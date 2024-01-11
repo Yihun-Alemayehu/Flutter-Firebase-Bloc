@@ -251,35 +251,35 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      // floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
-      //   builder: (context, state) {
-      //     if (state.status == MyUserStatus.success) {
-      //       return FloatingActionButton(
-      //         onPressed: () {
-      //           Navigator.push(
-      //             context,
-      //             MaterialPageRoute(
-      //               builder: (context) => BlocProvider<CreatePostBloc>(
-      //                 create: (context) => CreatePostBloc(
-      //                   myPostRepository: FirebasePostRepository(),
-      //                 ),
-      //                 child: PostScreen(
-      //                   state.user!,
-      //                 ),
-      //               ),
-      //             ),
-      //           );
-      //         },
-      //         child: const Icon(Icons.add),
-      //       );
-      //     } else {
-      //       return const FloatingActionButton(
-      //         onPressed: null,
-      //         child: Icon(Icons.clear),
-      //       );
-      //     }
-      //   },
-      // ),
+      floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
+        builder: (context, state) {
+          if (state.status == MyUserStatus.success) {
+            return FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider<CreatePostBloc>(
+                      create: (context) => CreatePostBloc(
+                        myPostRepository: FirebasePostRepository(),
+                      ),
+                      child: PostScreen(
+                        state.user!,
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Icon(Icons.add),
+            );
+          } else {
+            return const FloatingActionButton(
+              onPressed: null,
+              child: Icon(Icons.clear),
+            );
+          }
+        },
+      ),
     );
   }
 }

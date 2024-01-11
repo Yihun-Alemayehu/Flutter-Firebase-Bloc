@@ -240,6 +240,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                           setState(() {
                             context.read<SignUpBloc>().add(SignUpRequired(
+                                role: 'user',
                                 user: myUser,
                                 password: passwordController.text));
                             // MaterialPageRoute(
