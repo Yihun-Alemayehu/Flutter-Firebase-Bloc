@@ -1,9 +1,11 @@
 import 'dart:developer' show log;
 import 'dart:io';
+import 'dart:js_interop';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:user_repository/src/entities/entities.dart';
 import 'package:user_repository/src/models/my_user.dart';
 import 'package:user_repository/src/user_repo.dart';
@@ -118,4 +120,11 @@ class FirebaseUserRepository implements UserRepository {
       rethrow;
     }
   }
+
+  // @override
+  // AuthorizeAccess(BuildContext context) {
+  //   FirebaseAuth.instance.currentUser().then((user){
+  //     Firestore.instance.collection('users').where
+  //   })
+  // }
 }
