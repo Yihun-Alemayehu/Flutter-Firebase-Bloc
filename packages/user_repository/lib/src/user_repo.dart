@@ -24,5 +24,5 @@ abstract class UserRepository {
   Future<String> uploadPicture(String file, String userId);
 
   // get admin
-  AuthorizeAccess(BuildContext context){}
+  // AuthorizeAccess(BuildContext context){}
 }
