@@ -252,10 +252,11 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      
       floatingActionButton: BlocBuilder<MyUserBloc, MyUserState>(
         builder: (context, state) {
           if (state.status == MyUserStatus.success) {
+            // print('-----------------Role----------------');
+            // print('${state.user!.role}');
             return FloatingActionButton(
               onPressed: () {
                 Navigator.push(
@@ -284,7 +285,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
- 
-
 }
-
